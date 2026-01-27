@@ -63,6 +63,12 @@ To enable NFC reading for passports and ID cards with chips:
    </array>
    ```
 
+### Important NFC Notes
+
+> **Simulator Limitation:** The iOS SDK requires CoreNFC to run (regardless of whether you use NFC or not). Since Xcode 12, there is a bug where `libnfshared.dylib` is missing from simulators. Refer to [this Stack Overflow thread](https://stackoverflow.com/questions/63915728/xcode12-corenfc-simulator-library-not-loaded) for a solution to this problem.
+
+> **App Store Review:** Even if you disable the NFC feature in your app configuration, Apple may ask you to provide a video demonstrating NFC usage because NFC-related code is part of the SDK binary. You can download a video demonstrating our NFC feature to submit to Apple here: [Download NFC Demo Video](https://business.didit.me/videos/passport-nfc.mp4)
+
 ## Installation
 
 ### Swift Package Manager (Recommended)
