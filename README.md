@@ -86,7 +86,7 @@ Or add it to your `Package.swift`:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/didit-protocol/didit-sdk-ios.git", from: "0.0.1")
+    .package(url: "https://github.com/didit-protocol/didit-sdk-ios.git", from: "0.0.7")
 ]
 ```
 
@@ -106,6 +106,16 @@ pod install
 
 > **Note:** Open the `.xcworkspace` file (not `.xcodeproj`) after running `pod install`.
 
+#### Xcode 15+ CocoaPods Build Errors
+
+If you encounter rsync permission errors like `Operation not permitted` when building with CocoaPods on Xcode 15+, you need to disable User Script Sandboxing:
+
+1. Open your project in Xcode
+2. Select your **project** (not target) in the navigator
+3. Go to **Build Settings**
+4. Search for "User Script Sandboxing"
+5. Set `ENABLE_USER_SCRIPT_SANDBOXING` to **No** for both Debug and Release
+
 ### Manual (XCFramework)
 
 1. Download both frameworks from the [Releases](https://github.com/didit-protocol/didit-sdk-ios/releases) page:
@@ -122,7 +132,7 @@ pod install
 
 ```swift
 import SwiftUI
-import didit_sdk
+import DiditSDK
 
 struct ContentView: View {
     var body: some View {
@@ -349,7 +359,7 @@ Each result includes a `SessionData` object:
 
 ```swift
 import SwiftUI
-import didit_sdk
+import DiditSDK
 
 struct HomeView: View {
     @State private var resultMessage: String?
